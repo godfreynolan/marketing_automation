@@ -5,15 +5,9 @@ from datetime import datetime
 from ln_oauth import auth, headers
 
 # get the data from meetup.com (just one group for now)
-# parse the data
-# get ChatGPT to generate a linkedin post
-# post it to linkedin
-
-# get the data from meetup.com (just one group for now)
 ACCESS_TOKEN = config.MEETUP_ACCESS_TOKEN
 # GraphQL query
 query = 'query { groupByUrlname(urlname: "practical-chatgpt-api-programming") { name id upcomingEvents(input: {first: 1}) { pageInfo { hasNextPage hasPreviousPage startCursor endCursor } count edges { cursor node { id title eventUrl images { id baseUrl preview } venue { name } dateTime duration timezone endTime isOnline shortUrl } } } } }'
-# query = 'query { groupByUrlname(urlname: "drone-software-meetup-group") { name id upcomingEvents(input: {first: 1}) { pageInfo { hasNextPage hasPreviousPage startCursor endCursor } count edges { cursor node { id title eventUrl images { id baseUrl preview } venue { name } dateTime duration timezone endTime isOnline shortUrl } } } } }'
 url = 'https://api.meetup.com/gql'
 headers = {
     'Authorization': f'Bearer {ACCESS_TOKEN}',
@@ -24,8 +18,6 @@ payload = {
     'query': query
 }
 response = requests.post(url, json=payload, headers=headers)
-
-
 
 # Extracting required data
 def parse_meetup_data(data):
