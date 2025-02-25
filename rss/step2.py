@@ -90,6 +90,4 @@ with open("linkedin_post.txt", "r", encoding='utf-8') as file:
     post_text = file.read().strip()
 
 # Usage
-# to do - get ChatGPT to genrate the text
-# upload_image_to_linkedin("image.png","Part 2 of our blog series, Generating a Zodiac Android App using GPT4o with Canvas, is now live. In this installment, we delve into creating a REST API backend using Flask, deploying it on Glitch, and integrating OpenAI's API to generate daily horoscopes. Don't miss out on enhancing your app development skills! Read more here: https://www.riis.com/./blog/generating-a-zodiac-android-app-using-gpt4o-with-canvas-part-2")
 upload_image_to_linkedin("image.png", post_text)
